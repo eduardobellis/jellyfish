@@ -1,7 +1,6 @@
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule, CanActivate } from '@angular/router';
 import { SigninComponent } from './signin/signin.component';
-import { AuthGuardService } from './auth-guard.service';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
 const routes: Routes = [
@@ -11,8 +10,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: SidebarComponent,
-    canActivate: [AuthGuardService]
+    component: SidebarComponent
   }
 ];
 

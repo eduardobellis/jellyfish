@@ -19,8 +19,6 @@ import { TechComponent } from './tech/tech.component';
 import { ImpactsComponent } from './impacts/impacts.component';
 import { RecommentadionsComponent } from './recommentadions/recommentadions.component';
 import { SigninComponent } from './signin/signin.component';
-import { AuthGuardService } from './auth-guard.service';
-import { AuthService } from './auth.service';
 
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
@@ -57,7 +55,7 @@ export function getAuthServiceConfigs() {
     SocialLoginModule
   ],
   providers: [{
-    provide: AuthGuardService,
+    provide: AuthServiceConfig,
     useFactory: getAuthServiceConfigs
   }],
   bootstrap: [AppComponent]
