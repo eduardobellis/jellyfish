@@ -1,7 +1,8 @@
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule, CanActivate } from '@angular/router';
 import { SigninComponent } from './signin/signin.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { SummaryComponent } from './summary/summary.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
@@ -9,8 +10,8 @@ const routes: Routes = [
     component: SigninComponent
   },
   {
-    path: '',
-    component: SidebarComponent
+    path: 'userDetails',
+    component: SummaryComponent
   }
 ];
 
