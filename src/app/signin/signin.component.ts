@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService, GoogleLoginProvider } from 'angular-6-social-login';
 
 @Component({
@@ -7,8 +8,7 @@ import { AuthService, GoogleLoginProvider } from 'angular-6-social-login';
   styleUrls: ['./signin.component.scss']
 })
 export class SigninComponent implements OnInit {
-
-  constructor(private socialAuthService: AuthService ) { }
+  constructor(private socialAuthService: AuthService, private router:Router) { }
 
   public socialSignIn(socialPlatform : string) {
     let socialPlatformProvider;
@@ -17,10 +17,11 @@ export class SigninComponent implements OnInit {
     }     
     this.socialAuthService.signIn(socialPlatformProvider).then(
       (userData) => {
-        console.log(socialPlatform+" sign in data : " , userData);
-        // Now sign-in with userData
-        // ...
-            
+        if (userData.token && userData.email.match("^[a-zA-Z0-9_.+-]+@(?:(?:[a-zA-Z0-9-]+\.)?[a-zA-Z]+\.)?(ciandt)\.com$")){
+          this.router.navigateByUrl('/search');
+        }else{
+          console.log("User not in domain");
+        }  
       }
     );
   }

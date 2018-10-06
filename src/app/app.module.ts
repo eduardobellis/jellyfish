@@ -6,9 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { SummaryComponent } from './summary/summary.component';
 import { SigninComponent } from './signin/signin.component';
+import { SearchComponent } from './search/search.component';
+import { environment } from '../environments/environment';
 
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
@@ -25,14 +29,17 @@ export function getAuthServiceConfigs() {
   declarations: [
     AppComponent,
     SummaryComponent,
-    SigninComponent
+    SigninComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    SocialLoginModule
+    SocialLoginModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
   ],
   providers: [{
     provide: AuthServiceConfig,
