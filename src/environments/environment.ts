@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyAMPzRvRWexXa40kcZq1mRCQv5Rm9OaaSY",
+    authDomain: "ciandt-jellyfish.firebaseapp.com",
+    databaseURL: "https://ciandt-jellyfish.firebaseio.com",
+    projectId: "ciandt-jellyfish",
+    storageBucket: "ciandt-jellyfish.appspot.com",
+    messagingSenderId: "521973557152"
+  }
 };
 
 /*

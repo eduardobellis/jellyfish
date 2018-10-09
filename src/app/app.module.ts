@@ -1,18 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider } from "angular-6-social-login";
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireStorage } from '@angular/fire/storage'
+import { environment } from '../environments/environment';
 
 import { SummaryComponent } from './summary/summary.component';
 import { SigninComponent } from './signin/signin.component';
 import { SearchComponent } from './search/search.component';
-import { environment } from '../environments/environment';
+import { FirebaseService } from './firebase.service';
 
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
@@ -38,13 +41,17 @@ export function getAuthServiceConfigs() {
     HttpClientModule,
     BrowserAnimationsModule,
     SocialLoginModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    FormsModule
+    
   ],
   providers: [{
     provide: AuthServiceConfig,
     useFactory: getAuthServiceConfigs
-  }],
+  },
+  [AngularFirestore],
+  [AngularFireStorage],
+  [FirebaseService]],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
