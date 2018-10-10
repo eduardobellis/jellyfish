@@ -1,4 +1,5 @@
-<div class="container" *ngIf="results$ | async as result">
+<!-- <div class="container" *ngIf="results"> -->
+<div class="container">
   <div class="row">
     <div class="col-4">
       
@@ -8,18 +9,18 @@
       <img src="../../assets/img/icon-chat.png" class="icon-chat">
     </div>
     <div class="col-4">
-      <div class="row">
-        <p class="user-name">{{ result.socialName }}</p>
-      </div>
+        <div class="row" style="height: 100px;">
+            <p class="user-name">{{ results?.name }}</p>
+        </div>
       <div class="row">
         <div class="col-0 user-info" >
-            <u>{{ result.role }}</u>
+            <u>{{ results?.role.name }}</u>
         </div>
         <div class="col-0 user-info" style="color: black;">
           <div>&ensp;at&ensp;</div>
         </div>
         <div class="col-0 user-info">
-          <u>{{ result.actualProject }}</u>
+          <u>{{ results?.project.name }}</u>
         </div>
       </div>
       <div class="row" style="margin-top:16px;">
@@ -27,14 +28,14 @@
           <img src="../../assets/img/icon-location.png" class="icon-location">
         </div>
         <div class="col-0">
-          <u class="user-location">{{ result.location }}</u>
+          <u class="user-location">{{ results?.cityBase.acronym}}&ensp;/&ensp;{{ results?.cityBase.name }}</u>
         </div>
       </div>
       <div class="row" style="margin-top:16px;">
-        <p class="div user-email"> Email: {{ result.email }}</p>
+        <p class="div user-email"> Email: {{ results?.email }}</p>
       </div>
       <div class="row">
-          <p class="div user-contact"> Tel: {{ result.contact }}</p>
+          <p class="div user-contact"> Tel: {{ results?.telephone }}</p>
       </div>
     </div>
     <div class="col-4">
@@ -52,34 +53,18 @@
         </div>
       </div>
       <div class="row">
-        <p class="user-coach"> Coach:&ensp;{{ result.coach }} </p>
+        <p class="user-coach"> Coach:&ensp;{{ results?.coach }} </p>
       </div>
       <div class="row">
-        <p class="user-pdm"> PDM:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ result.PDM }} </p>
+        <p class="user-pdm"> PDM:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ results?.pdm }} </p>
       </div>
       <div class="row">
-        <p class="user-bp"> BP:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ensp;{{ result.BP }} </p>
+        <p class="user-bp"> BP:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ensp;{{ results?.bp }} </p>
       </div>
       <div class="row">
-        <p class="user-area"> Area:&nbsp;&nbsp;&nbsp;&nbsp;&ensp;{{ result.Area }}</p>
+        <p class="user-area"> Area:&nbsp;&nbsp;&nbsp;&nbsp;&ensp;{{ results?.area.name }}</p>
       </div>
     </div>
   </div>
 </div>
-<!-- </div>
-<p class="user-name">Gus Lamounier</p>
-<p class="user-info">
-  <u>UI Designer</u>
-  <font color="black"> at </font>
-  <u>Orion</u>
-</p>
-<img src="../../assets/img/icon-location.png" srcset="../../assets/img/icon-location@2x.png 2x,
-        ../../assets/img/icon-location@3x.png 3x"
-  class="icon-location">
-<p class="user-location">Belo Horizonte, MG / Brazil</p>
-<p class="user-email">E-mail:&ensp;gustavobl@ciandt.com</p>
-<p class="user-contact"> Tel:&ensp;(31) 98857763</p>
-<p class="user-coach"> Coach:&ensp;Jefferson Wellington da Cunha</p>
-<p class="user-pdm"> PDM:&nbsp;&nbsp;&nbsp;&nbsp;Jefferson Wellington da Cunha</p>
-<p class="user-bp"> BP:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ensp;Natalia Veleziana Garcia</p>
-<p class="user-area"> Area:&nbsp;&nbsp;&nbsp;&ensp;BU Polaris</p> -->
+<app-skill-radar></app-skill-radar>

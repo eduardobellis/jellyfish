@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ChartModule } from 'angular2-chartjs';
+import { ChartsModule } from 'ng2-charts';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage'
@@ -16,6 +18,7 @@ import { SummaryComponent } from './summary/summary.component';
 import { SigninComponent } from './signin/signin.component';
 import { SearchComponent } from './search/search.component';
 import { FirebaseService } from './firebase.service';
+import { SkillRadarComponent } from './skill-radar/skill-radar.component';
 
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
@@ -33,7 +36,8 @@ export function getAuthServiceConfigs() {
     AppComponent,
     SummaryComponent,
     SigninComponent,
-    SearchComponent
+    SearchComponent,
+    SkillRadarComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,9 @@ export function getAuthServiceConfigs() {
     BrowserAnimationsModule,
     SocialLoginModule,
     AngularFireModule.initializeApp(environment.firebase),
-    FormsModule
+    FormsModule,
+    ChartModule,
+    ChartsModule
     
   ],
   providers: [{

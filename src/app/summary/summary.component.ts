@@ -22,32 +22,34 @@ export class SummaryComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.id = params['id'];
     });
-    var docRef = this.afs.collection('/users').doc(this.id);
+    // var docRef = this.afs.collection('/users').doc(this.id);
 
-    docRef.get().subscribe(doc => {
-      if (doc.exists) {
-        this.results = doc.data();
-        console.log(doc.data());
-      } else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
-      }
-    });
+    // docRef.get().subscribe(doc => {
+    //   if (doc.exists) {
+    //     this.results = doc.data();
+    //     this.results.name = doc.data().name.toLowerCase();
+    //     this.results.name = this.results.name.replace(/(?:^|\s)\S/g, c => c.toUpperCase());;
+    //     console.log(this.results);
+    //   } else {
+    //     // doc.data() will be undefined in this case
+    //     console.log("No such document!");
+    //   }
+    // });
 
 
-    let ret: string;
-    this.fileStorage.storage.app.storage("gs://ciandt-jellyfish.appspot.com")
-      .ref()
-      .child('photos/' + this.id + '.jpg')
-      .getDownloadURL().then(function (url) {
-        if (url) {
-          ret = url;
-          console.log('url: ' + url);
-        } else {
-          console.log('url is undefinied');
-        }
-      }).then(() => {
-        this.imgUrl = ret;
-      });
+    // let ret: string;
+    // this.fileStorage.storage.app.storage("gs://ciandt-jellyfish.appspot.com")
+    //   .ref()
+    //   .child('photos/' + this.id + '.jpg')
+    //   .getDownloadURL().then(function (url) {
+    //     if (url) {
+    //       ret = url;
+    //       console.log('url: ' + url);
+    //     } else {
+    //       console.log('url is undefinied');
+    //     }
+    //   }).then(() => {
+    //     this.imgUrl = ret;
+    //   });
   }
 }

@@ -4,18 +4,12 @@
     <div class="search-result" *ngFor="let result of results | async">
       <a href="/u-d/{{ result.login }}">
         <div class="card">
-          <!-- <img src="img_avatar.png" alt="Avatar" style="width:100%"> -->
           <div class="container">
-            <h4><b>{{ result.name }}</b></h4>
+            <h4><b style="text-transform: capitalize;">{{ result.name }}</b></h4>
             <p>{{ result.email }}</p>
           </div>
         </div>
       </a>
-      <!-- <a href="">
-        {{ result.fullName }}
-        <br>
-        {{ result.email }}
-      </a> -->
     </div>
   </div>
 </div>

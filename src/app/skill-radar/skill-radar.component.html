@@ -1,0 +1,17 @@
+<!-- <hr>
+<div class="row">
+  <div class="container-fluid">
+    <canvas [type]="type" [data]="data" [options]="options" class="canvas"></canvas>
+  </div>
+</div> -->
+<hr>
+<div style="display: block">
+    <canvas baseChart
+            [datasets]="radarChartData"
+            [labels]="radarChartLabels"
+            [chartType]="radarChartType"
+            [options]="radarOptions"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"
+            height="100%"></canvas>
+  </div>

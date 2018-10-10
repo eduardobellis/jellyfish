@@ -15,11 +15,10 @@ export class SearchComponent {
   }
 
   search() {
-    console.log('Search Value now: ' + this.searchValue);
     let self = this;
     self.results = self.afs.collection('/users', ref => 
     ref.orderBy('name')
-    .startAt(this.searchValue).endAt(this.searchValue + "\uf8ff"))
+    .startAt(this.searchValue.toUpperCase()).endAt(this.searchValue.toUpperCase() + "\uf8ff"))
     .valueChanges();
   }
 
