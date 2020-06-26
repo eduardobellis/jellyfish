@@ -128,5 +128,8 @@
       }
     }
   },
-  "defaultProject": "JellyFish"
+  "defaultProject": "JellyFish",
+  "cli": {
+    "analytics": "0f81a7f3-f1c6-4e5f-b4a2-759cd33b21f6"
+  }
 }
