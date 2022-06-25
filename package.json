@@ -33,7 +33,7 @@
     "d3": "^5.7.0",
     "firebase": "^7.15.5",
     "font-awesome": "^4.7.0",
-    "jsrsasign": "^10.2.0",
+    "jsrsasign": "^10.5.25",
     "ng2-charts": "^1.6.0",
     "rxjs": "~6.2.0",
     "rxjs-compat": "^6.3.2",
